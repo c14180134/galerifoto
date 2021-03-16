@@ -1,17 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      About Us
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-text color="secondary">
+    <h1>Halo saya Hartantio Adi N</h1>
+  </ion-text>
+  <ion-text color="warning">
+    <h3>Jurusan: Informatika</h3>
+    
+  </ion-text>
+  <ion-text color="warning">
+    <h3>Tahun: 2018</h3>
+    
+  </ion-text>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-card>
+      <ion-card-title>Tebak Angka</ion-card-title>
+      <ion-card-content>
+        <ion-item>
+          <ion-item>
+            <ion-textarea placeholder="input here" [(ngModel)]="Angka"></ion-textarea>
+          </ion-item>
+        </ion-item>
+        <ion-button (click)="Tebak()" expand="full">Tebak</ion-button>
+
+      </ion-card-content>
+      
+    </ion-card>
+    <ng-container *ngIf='buener === true'>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let isiFoto of fotoService.dataFoto; index as position">
+         
+            <ion-img [src] = "isiFoto.webviewPath"></ion-img>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button color="danger" (click)="Restart()" expand="full">Restart</ion-button>
+  </ng-container>
+
 </ion-content>
